@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sáo trúc HD</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/header_style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main_menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/second_menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/footer_style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/dataStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/content_style.css">
+    <style>
+        h1 {
+            font-size: 30px;
+            color: red;
+            font-style: italic;
+        }
+
+        .policy {
+            border: solid white;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <div class="first">
+                <div class="image">
+                    <img src="~/Content/images/others/mail.png">
+                </div>&nbsp;
+                <div class="text">nguyenquang2000.hanoi@gmail.com</div>
+            </div>
+            <div class="space"></div>
+            <div class="second">
+                <div class="image">
+                    <img src="~/Content/images/others/phone.png">
+                </div>&nbsp;
+                <div class="text">0961200534</div>
+            </div>
+        </div>
+        <div class="space"></div>
+    </header>
+
+    <section>
+        <div class="left">
+            <a href="">
+                <img src="~/Content/images/others/logo_new.jpg">
+            </a>
+        </div>
+        <div class="center">
+            <h1>Chào mừng bạn đến với trang quản lý</h1>
+        </div>
+        <div style="text-align:right; width:30%;">
+            @Html.ActionLink("Đăng xuất", "Logout", "Admin")
+        </div>
+    </section>
+
+    <div class="menu">
+        <ul>
+            <li>@Html.ActionLink("Chào mừng", "Index", "Admin")</li>
+            <li>@Html.ActionLink("Sản phẩm", "Index", "tblProducts")</li>
+            <li>@Html.ActionLink("Danh mục", "Index", "tblCategories")</li>
+            @{Html.RenderAction("CategoryMenu", "tblProducts"); }
+        </ul>
+    </div>
+    <div class="policy" style="display:flex;">
+        <img src="~/Content/images/others/admin_cover2.jpg" height="300" style="width:33%">
+        <img src="~/Content/images/others/introduction.jpg" height="300" style="width:33%">
+        <img src="~/Content/images/others/cover_admin.jpg" height="300" style="width:34%">
+    </div>
+    <content>
+        <div class="content" style="width:100%;">
+            @RenderBody()
+        </div>
+    </content>
+    <br /><br /><br /><br />
+    <footer>
+        <div class="text">
+            Nguyễn Minh Quang, 2018600016 - Khoa CNTT, Đại học Công nghiệp Hà Nội.
+        </div>
+    </footer>
+</body>
+</html>
+

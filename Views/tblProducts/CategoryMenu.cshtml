@@ -1,0 +1,7 @@
+﻿@model List<Proj_BTL_NguyenMinhQuang_2018600016.Models.tblCategory>
+
+@foreach (var item in Model)
+{
+<li><a href="/tblProducts/ProductByCat?cat=@item.Categoryid"> @item.CategoryName </a></li>
+}
+

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct>
+
+@{
+    ViewBag.Title = "ClientProductByCat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách sản phẩm thuộc danh mục ''@ViewBag.Category''</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6 col-xs-12 bootCols">
+            <a href="@Url.Action("ClientDetails", new { id=item.Pid.ToString().Trim() })" class="image">
+                @{
+                    String ImagePath = "~/Content/images/products/" + item.ImagePath;
+                }
+                <img src=@Url.Content(ImagePath) height="300" alt="Ảnh sản phẩm">
+            </a>
+            <div class="middle">
+                <a href="@Url.Action("ClientDetails", new { id=item.Pid.ToString().Trim() })" class="text">Chi tiết</a>
+            </div>
+            <div class="name">
+                @item.ProductName
+            </div>
+            <div class="price">@item.Price VNĐ</div>
+        </div>
+    }
+</div>

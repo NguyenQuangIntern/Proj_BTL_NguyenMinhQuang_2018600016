@@ -1,0 +1,50 @@
+﻿@model Proj_BTL_NguyenMinhQuang_2018600016.Models.tblCategory
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Session["account"] == null)
+{
+    Layout = null;
+    <p style="text-decoration:underline;">@Html.ActionLink("Vui lòng đăng nhập quản trị", "Index", "Admin")</p>
+}
+else
+{
+    <h2>Xóa danh mục</h2>
+
+    <h3>Bạn có chắc chắn muốn xóa danh mục này không?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CategoryName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaTittle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MetaTittle)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+}
+

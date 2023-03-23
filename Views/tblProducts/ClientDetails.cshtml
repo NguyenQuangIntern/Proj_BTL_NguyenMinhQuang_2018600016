@@ -1,0 +1,90 @@
+﻿@model Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct
+
+@{
+    ViewBag.Title = "ClientDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    String ImagePath = "~/Content/images/products/" + Model.ImagePath;
+    String ImagePath1 = "~/Content/images/products/" + Model.AdditionalImage1;
+    String ImagePath2 = "~/Content/images/products/" + Model.AdditionalImage2;
+}
+
+<style>
+    .product_detail_container {
+        display: flex;
+        align-items: center;
+    }
+
+        .product_detail_container .image {
+            width: 30%;
+            height: 500px;
+            margin-right: 2%;
+        }
+
+            .product_detail_container .image img {
+                width: 100%;
+                height: 100%;
+            }
+
+        .product_detail_container .content {
+            width: 60%;
+        }
+
+            .product_detail_container .content .price {
+                color: red;
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+
+    h3 {
+        font-weight: bold;
+    }
+
+    .product_detail_container .content a {
+        border-radius: 50px;
+        outline: none;
+        background: black;
+        color: white;
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+    }
+
+    .additional_detail img{
+        width:100%;
+    }
+   
+</style>
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div class="product_detail_container">
+    <div class="image">
+        <img src="@Url.Content(ImagePath)" alt="Ảnh sản phẩm" />
+    </div>
+    <div class="content">
+        <h3>@Model.ProductName</h3>
+        <div class="description">@Model.Description</div>
+        <hr />
+        <div class="price">@Model.Price VNĐ</div>
+        <a href="#">Chọn mua</a>
+    </div>
+</div>
+<div class="additional_detail">
+    @if (Model.AdditionalImage1 != null)
+    {
+        <h3>Thông tin chi tiết</h3>
+        <img src="@Url.Content(ImagePath1)" height="600" alt="Ảnh sản phẩm" />
+        <br /><br />
+        if (Model.AdditionalImage2 != null)
+        {
+            <img src="@Url.Content(ImagePath2)" height="600" alt="Ảnh sản phẩm" />
+            <br />
+        }
+        <p>@Model.AdditionalDetail</p>
+    }
+</div>
+
+
+

@@ -1,0 +1,43 @@
+﻿@model PagedList.IPagedList<Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Tìm mặt hàng: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Tìm" />
+    </p>
+}
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6 col-xs-12 bootCols">
+            <a href="@Url.Action("ClientDetails", new { id=item.Pid.ToString().Trim() })" class="image">
+                @{
+                    String ImagePath = "~/Content/images/products/" + item.ImagePath;
+                }
+                <img src=@Url.Content(ImagePath) height="300" alt="Ảnh sản phẩm">
+            </a>
+            <div class="middle">
+                <a href="@Url.Action("ClientDetails", new { id=item.Pid.ToString().Trim() })" class="text">Chi tiết</a>
+            </div>
+            <div class="name">
+                @item.ProductName
+            </div>
+            <div class="price">@item.Price VNĐ</div>
+        </div>
+    }
+</div>
+
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct>
+
+@{
+    ViewBag.Title = "ProductByCat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách sản phẩm thuộc danh mục ''@ViewBag.Category''</h2>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm", "Create")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th>
+            Tên danh mục
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Meta Tittle
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Ảnh
+        </th>
+        <th>
+            Giá 
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCategory.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetaTittle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @{
+                String ImagePath = "~/Content/images/products/" + item.ImagePath;
+            }
+            <img src=@Url.Content(ImagePath) width="200" class="img-thumbnail" /> <br />
+            @Html.DisplayFor(modelItem => item.ImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.Pid }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.Pid }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.Pid })
+        </td>
+    </tr>
+}
+
+</table>

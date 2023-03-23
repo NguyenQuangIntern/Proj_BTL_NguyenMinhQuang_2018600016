@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Experience";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .frame{
+        height:300px;
+        display:flex;
+    }
+     .frame .left{
+        margin-right:1%;
+        width:29%;
+    }
+     .frame .right {
+        width: 70%;
+        text-align:justify;
+    }
+     .frame .right a {
+         display:block;
+            font-size:20px;
+            color: blue;
+            font-weight: bold;
+            width:100%;
+            text-decoration:none;
+    }
+
+     .frame .right .content{
+        width:100%;
+        font-size: 20px;
+        bottom: 0;
+        height: 180px;
+        display:flex;
+        align-items: center;
+    }
+
+    .frame .left img{
+        width:100%;
+        border:5px solid white;
+        border-style:ridge;
+        height:100%;
+    }
+</style>
+
+<h2>Kinh nghiệm về sáo</h2>
+
+<p style="line-height:1.5;">
+    Tổng hợp các bài viết, các kiến thức, <b>kinh nghiệm về sáo</b> mà Sáo trúc Mão mèo đã tổng hợp được trong quá trình chơi sáo và làm sáo trúc.
+
+    Cùng chia sẻ với các bạn để cộng đồng sáo trúc ngày càng mạnh hơn, ngày càng có nhiều bạn thổi sáo hay hơn.
+
+    Nếu bạn có các kinh nghiệm về sáo trúc muốn chia sẻ với mọi người hãy gửi bài viết về cho chúng tôi qua email <b>maomeokta@gmail.com</b>
+</p>
+<br />
+<div class="frame">
+    <div class="left">
+        <img src="~/Content/images/others/process.png" />
+    </div>
+    <div class="right">
+        @Html.ActionLink("Cách tiêu diệt mối mọt cho sáo trúc Mão Mèo", "Maintain", "Home")
+        <div class="content">Kho nguyên liệu gồm nứa, trúc để sản xuất ra những sản phẩm đến tay người chơi sáo. Cơ sở sản xuất sáo của Mão Mèo cũng không thể tránh khỏi thất thoát và hư hỏng do mối, mọt gây nên.</div>
+    </div>
+</div><br /><br />
+
+<div class="frame">
+    <div class="left">
+        <img src="~/Content/images/others/intro6.png" />
+    </div>
+    <div class="right">
+        @Html.ActionLink("Giới thiệu một số loại sáo ngang thông dụng", "Intro", "Home")
+        <div class="content">Như các bạn đã biết là khi đam mê,yêu thích sáo các bạn sẽ muốn tìm tòi rồi thử tất cả các loại sáo. Nhưng sáo nó quá đa dạng và phong phú.</div>
+    </div>
+</div><br /><br />
+
+<div class="frame">
+    <div class="left">
+        <img src="~/Content/images/others/select.jpg" />
+    </div>
+    <div class="right">
+        @Html.ActionLink("Làm sao để chọn được cây sáo trúc tốt", "Select", "Home")
+        <div class="content">Hôm nay tôi sẽ hướng dẫn các bạn làm sao để chọn được 1 chiếc sáo tốt nhất dành cho mình và dùng được lâu dài.Trước hết tôi muốn nói với các bạn mới bắt đầu tập chơi sáo.</div>
+    </div>
+</div><br /><br />

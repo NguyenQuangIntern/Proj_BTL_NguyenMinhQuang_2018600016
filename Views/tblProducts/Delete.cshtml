@@ -1,0 +1,89 @@
+﻿@model Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    String ImagePath = "~/Content/images/products/" + Model.ImagePath;
+    String ImagePath1 = "~/Content/images/products/" + Model.AdditionalImage1;
+    String ImagePath2 = "~/Content/images/products/" + Model.AdditionalImage2;
+}
+
+@if (Session["account"] == null)
+{
+    Layout = null;
+    <p style="text-decoration:underline;">@Html.ActionLink("Vui lòng đăng nhập quản trị", "Index", "Admin")</p>
+}
+else
+{
+    <h2>Xóa sản phẩm</h2>
+
+    <h3 style="color:red;">Bạn có chắc chắn muốn xóa sản phẩm này?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên danh mục
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tblCategory.CategoryName)
+            </dd>
+
+            <dt>
+                Tên sản phẩm
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductName)
+            </dd>
+
+            <dt>
+                MetaTittle
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MetaTittle)
+            </dd>
+
+            <dt>
+                Mô tả
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                Ảnh
+            </dt>
+
+            <dd>
+                <img src=@Url.Content(ImagePath) width="150" class="img-thumbnail" /> <br />
+                @Html.DisplayFor(model => model.ImagePath)
+            </dd>
+
+            <dt>
+                Giá
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Danh sách sản phẩm", "Index")
+            </div>
+        }
+    </div>
+}
+

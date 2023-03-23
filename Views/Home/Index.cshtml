@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="intro_info">
+        <div class="left"><img src="~/Content/images/others/intro.jpg" alt="Giới thiệu" /></div>
+        <a href="#" class="right"><img src="~/Content/images/others/shopping_tutorials.jpg" alt="Hướng dẫn mua hàng" /></a>
+    </div><br />
+    <h2>Danh sách sản phẩm phổ biến</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6 col-xs-12 bootCols">
+                <a href="@Url.Action("Details", "tblProducts")" class="image">
+                    @{
+                        String ImagePath = "~/Content/images/products/" + item.ImagePath;
+                    }
+                    <img src=@Url.Content(ImagePath) height="300" alt="Ảnh sản phẩm">
+                </a>
+                <div class="middle">
+                    <a href="" class="text">Chi tiết</a>
+                </div>
+                <div class="name">
+                    @item.ProductName
+                </div>
+                <div class="price">@item.Price VNĐ</div>
+            </div>
+        }
+    </div>
+</div>
+

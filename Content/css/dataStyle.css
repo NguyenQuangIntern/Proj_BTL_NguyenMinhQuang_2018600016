@@ -1,0 +1,10 @@
+﻿.dl-horizontal, .form-horizontal {
+    line-height: 1.6;
+}
+dt, .my_label {
+    font-weight: bold;
+}
+
+*{
+    font-family:'Times New Roman';
+}

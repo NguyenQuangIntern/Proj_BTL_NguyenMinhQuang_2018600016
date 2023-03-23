@@ -1,0 +1,118 @@
+﻿@model Proj_BTL_NguyenMinhQuang_2018600016.Models.tblProduct
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    String ImagePath = "~/Content/images/products/" + Model.ImagePath;
+    String ImagePath1 = "~/Content/images/products/" + Model.AdditionalImage1;
+    String ImagePath2 = "~/Content/images/products/" + Model.AdditionalImage2;
+}
+
+@if (Session["account"] == null)
+{
+    Layout = null;
+    <p style="text-decoration:underline;">@Html.ActionLink("Vui lòng đăng nhập quản trị", "Index", "Admin")</p>
+}
+else
+{
+    <h2>Sửa thông tin sản phẩm</h2>
+
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Pid)
+
+            <div class="form-group">
+                <div class="my_label">Danh mục</div>
+                <div class="col-md-10">
+                    @Html.DropDownList("Categoryid", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Categoryid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Tên sản phẩm</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Meta Tittle</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MetaTittle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MetaTittle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Mô tả</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Ảnh</div>
+                <div class="col-md-10">
+                    <img src=@Url.Content(ImagePath) width="150" class="img-thumbnail" /> <br />
+                    @Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Giá</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Thông tin bổ sung</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AdditionalDetail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AdditionalDetail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Ảnh bổ sung 1</div>
+                <div class="col-md-10">
+                    <img src=@Url.Content(ImagePath1) width="150" class="img-thumbnail" /> <br />
+                    @Html.EditorFor(model => model.AdditionalImage1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AdditionalImage1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="my_label">Ảnh bổ sung 2</div>
+                <div class="col-md-10">
+                    <img src=@Url.Content(ImagePath2) width="150" class="img-thumbnail" /> <br />
+                    @Html.EditorFor(model => model.AdditionalImage2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AdditionalImage2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Trở lại danh sách", "Index")
+    </div>
+
+}

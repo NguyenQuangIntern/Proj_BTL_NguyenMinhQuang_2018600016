@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sáo trúc HD</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/header_style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main_menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/second_menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/footer_style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/content_style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/dataStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/product_list_style.css">
+</head>
+<body>
+    <header>
+        <div class="left">
+            <div class="first">
+                <div class="image">
+                    <img src="~/Content/images/others/mail.png">
+                </div> &nbsp;
+                <div class="text">nguyenquang2000.hanoi@gmail.com</div>
+            </div>
+            <div class="space"></div>
+            <div class="second">
+                <div class="image">
+                    <img src="~/Content/images/others/phone.png">
+                </div>&nbsp;
+                <div class="text">0961200534</div>
+            </div>
+        </div>
+        <div class="space"></div>
+        <ul class="right">
+                <li><a href="#">Đăng ký</a></li>
+                <li><a href="#">Đăng nhập</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <div class="left">
+            <a href="">
+                <img src="~/Content/images/others/logo_new.jpg">
+            </a>
+        </div>
+        <div class="center">
+            <form>
+                <input type="text" name="" placeholder="Tìm kiếm...">
+                <button><i class="fa fa-search"></i> </button>
+            </form>
+        </div>
+        <div class="right">
+            <i>Theo dõi chúng tôi qua:</i>
+            <a href="https://www.youtube.com/c/HaUITV/videos">
+                <img src="~/Content/images/others/youtube.jpg">
+            </a>
+            <a href="https://www.facebook.com/fithaui.edu.vn"><img src="~/Content/images/others/facebook.png"></a>
+            <a href="https://www.fit-haui.edu.vn"><img src="~/Content/images/others/website.png"></a>
+        </div>
+    </section>
+
+    <div class="menu">
+        <ul>
+            <li>@Html.ActionLink("Trang chủ", "ClientIndex", "tblProducts")</li>
+            <li>@Html.ActionLink("''Người ta nói''", "About", "Home")</li>
+            <li>@Html.ActionLink("Sản phẩm", "AllProduct", "tblProducts")</li>
+            <li>@Html.ActionLink("Kinh nghiệm về sáo", "Experience", "Home")</li>
+        </ul>
+    </div>
+    <div class="policy">
+        <img src="~/Content/images/others/policy.jpg">
+    </div>
+    <content>
+        <nav>
+            <div class="category_tittle">
+                DANH MỤC SẢN PHẨM
+            </div>
+            <ul>
+                @{Html.RenderAction("ClientCategoryMenu", "tblProducts"); }
+            </ul>
+            <br />
+            <div class="category_tittle">
+                HỖ TRỢ TRỰC TUYẾN
+            </div>
+            <div class="support">
+                <img src="~/Content/images/others/phone.png" />
+                &nbsp;<span>Kinh doanh: </span>&nbsp;
+                <span style="color:red; font-weight:bold;">0961200534</span>
+            </div>
+            <br />
+            <div class="category_tittle" style="margin-bottom:5px;">
+                HƯỚNG DẪN THỔI SÁO
+            </div>
+            <span style="font-weight:bold;">Học thổi bài: Giấc mơ trưa</span><br />
+            <iframe src="https://www.youtube.com/embed/-EhbonFDSxI" allowfullscreen style="width:195px;"> </iframe><br />
+            <span style="font-weight:bold;">Học thổi bài: Về quê</span><br />
+            <iframe src="https://www.youtube.com/embed/BV91eM8A8Cs" allowfullscreen style="width:195px;"> </iframe><br />
+            <span style="font-weight:bold;">Trên đường chiến thắng</span><br />
+            <iframe src="https://www.youtube.com/embed/I0B8cuXG_TI" allowfullscreen style="width:195px;"> </iframe><br />
+            <span style="font-weight:bold;">Học thổi bài: Bến thượng hải</span><br />
+            <iframe src="https://www.youtube.com/embed/7iDKLsNR7HQ" allowfullscreen style="width:195px;"> </iframe><br />
+        </nav>
+        <div class="content">
+            @RenderBody()
+        </div>
+    </content>
+    <br /><br /><br /><br />
+    <footer>
+        <div class="text">
+            Nguyễn Minh Quang, 2018600016 - Khoa CNTT, Đại học Công nghiệp Hà Nội.
+        </div>
+    </footer>
+</body>
+</html>
